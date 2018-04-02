@@ -44,3 +44,5 @@ The Controller is responsible to process incoming requests. It processes the use
 
 7) Developer have knowledge of client side code and html code.
 
+ ## DIAGRAM OF MVC
+![alt tag](https://github.com/spdobest/MVC_MVP_MVVM/blob/master/images/mvc.png)
