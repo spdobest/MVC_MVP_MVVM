@@ -1,7 +1,7 @@
 # MVC_MVP_MVVM
 This repository explains the use of MVC,MVP and MVVM design pattern. It will also explains where to use the Design patterns and where not. it will differentiate the three Design pattern.It will also show the data flow diagram of each design pattern.
 
-# MVC
+## MVC
 It is the most used Design pattern Before. Its veri simple and easy to Implement. Mainly it have 3 modules.
 1. Model
 2. View
@@ -44,5 +44,45 @@ The Controller is responsible to process incoming requests. It processes the use
 
 7) Developer have knowledge of client side code and html code.
 
- ## DIAGRAM OF MVC
+ ### DIAGRAM OF MVC
 ![alt tag](https://github.com/spdobest/MVC_MVP_MVVM/blob/master/images/mvc.png)
+
+
+## MVP - Model View Presenter
+NOw a days It's  the most used Design pattern. Its modularise the whole project into different parts
+1. Model     - Its holds the data
+2. View      - Its SHow the data
+3. Presenter - Its the layer between Model and View
+
+Technically Presenter,Interactor, View are the main Components of MVP
+### Presenter 
+its the Layer between Interactor and View, When we pass any network call from View to Interactor, the call Gopes through Pre
+
+### Diagram of MVP
+![alt tag](https://github.com/spdobest/MVC_MVP_MVVM/blob/master/images/mvp.png)
+
+## MVVM - Model View  Viewmodel
+NOw a days It's  the most used Design pattern. Its modularise the whole project into different parts
+1. Model     - Its holds the data
+2. View      - Its SHow the data
+3. ViewModel - Its the layer between Model and View, which holds all the business logic
+ 
+### Model 
+its the Layer between Interactor and View, When we pass any network call from View to Interactor, the call Gopes through Pre
+
+### View 
+its the Layer between Interactor and View, When we pass any network call from View to Interactor, the call Gopes through Pre
+
+### Viewmodel
+its the Layer between Interactor and View, When we pass any network call from View to Interactor, the call Gopes through Pre
+
+### Diagram of MVP
+![alt tag](https://github.com/spdobest/MVC_MVP_MVVM/blob/master/images/mvvm.png)
+
+
+
+### Graphical Comparison between MVC,MVP,MVVM
+![alt tag](https://github.com/spdobest/MVC_MVP_MVVM/blob/master/images/mvc_mvp_mvvm.png)
+
+
+
