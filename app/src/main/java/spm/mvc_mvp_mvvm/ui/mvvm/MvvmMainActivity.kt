@@ -30,9 +30,5 @@ class MvvmMainActivity : AppCompatActivity() {
 
         apiService = APIClient.getClient().create(TwitterApi::class.java)
 
-
     }
-}
-
-
 }
