@@ -62,9 +62,16 @@ its the Layer between Interactor and View, When we pass any network call from Vi
 ![alt tag](https://github.com/spdobest/MVC_MVP_MVVM/blob/master/images/mvp.png)
 
 ## MVVM - Model View  Viewmodel
+MVVM pattern supports two-way data binding between View and View-Model. This allows automatic propagation of changes, inside the state of View-Model to the View. Generally, the View-Model utilizes the observer pattern to inform changes in the View-Model to the Model.
+
+#### ViewModel
+It is responsible for exposing methods, commands, and other properties that help to maintain the state of the view, manipulate the model as the result of actions on the view, and trigger events in the view itself. View has a reference to View-Model but View-Model has no information about the View. There is many-to-one relationship between View and View-Model means many Views can be mapped to one View-Model. It is completely independent of Views.
+The bi-directional data binding or the two way data binding between the view and the View-Model ensures that the models and properties in the View-Model is in sync with the view. The MVVM design pattern is well suited in applications that need support for bi-directional data binding.
+
+
 NOw a days It's  the most used Design pattern. Its modularise the whole project into different parts
 1. Model     - Its holds the data
-2. View      - Its SHow the data
+2. View      - In MVVM model, we only pass the Viewmodel object which contains Model/Data for the View to set. THe ViewModels work is to set the data to the View.
 3. ViewModel - Its the layer between Model and View, which holds all the business logic
  
 ### Model 
@@ -84,5 +91,19 @@ its the Layer between Interactor and View, When we pass any network call from Vi
 ### Graphical Comparison between MVC,MVP,MVVM
 ![alt tag](https://github.com/spdobest/MVC_MVP_MVVM/blob/master/images/mvc_mvp_mvvm.png)
 
+
+### Difference and Use of MVC, MVP, MVVM
+
+#### MVC :
+Use in situations where the connection between the view and the rest of the program is not always available (and you can’t effectively employ MVVM or MVP).
+This clearly describes the situation where a web API is separated from the data sent to the client browsers.  Microsoft’s ASP.NET MVC is a great tool for managing such situations and provides a very clear MVC framework.
+
+#### MVP:
+Use in situations where binding via a datacontext is not possible.
+Windows Forms is a perfect example of this.  In order to separate the view from the model, a presenter is needed.  Since the view cannot directly bind to the presenter, information must be passed to it view an interface (IView).
+
+#### MVVM:
+Use in situations where binding via a datacontext is possible.  Why?  The various IView interfaces for each view are removed which means less code to maintain.
+Some examples where MVVM is possible include WPF and javascript projects using Knockout.
 
 
