@@ -1,11 +1,10 @@
 package spm.mvc_mvp_mvvm.mvvm_java.view.ui;
 
-import android.arch.lifecycle.LifecycleActivity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import com.example.test.mvvmsampleapp.R;
-import com.example.test.mvvmsampleapp.service.model.Project;
+import spm.mvc_mvp_mvvm.R;
+
 
 public class MainActivity extends LifecycleActivity {
 

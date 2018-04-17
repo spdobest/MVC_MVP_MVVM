@@ -1,6 +1,5 @@
 package spm.mvc_mvp_mvvm.mvvm_java.view.ui;
 
-import android.arch.lifecycle.LifecycleFragment;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
@@ -10,10 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.test.mvvmsampleapp.R;
-import com.example.test.mvvmsampleapp.databinding.FragmentProjectDetailsBinding;
-import com.example.test.mvvmsampleapp.service.model.Project;
-import com.example.test.mvvmsampleapp.viewmodel.ProjectViewModel;
+import spm.mvc_mvp_mvvm.R;
+import spm.mvc_mvp_mvvm.mvvm_java.viewmodel.ProjectViewModel;
 
 public class ProjectFragment extends LifecycleFragment {
     private static final String KEY_PROJECT_ID = "project_id";
@@ -24,7 +21,7 @@ public class ProjectFragment extends LifecycleFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
             @Nullable Bundle savedInstanceState) {
         // Inflate this data binding layout
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_project_details, container, false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.mvvm_java_fragment_project_details, container, false);
 
         // Create and set the adapter for the RecyclerView.
         return binding.getRoot();

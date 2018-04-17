@@ -25,6 +25,8 @@
         </activity>
         <activity android:name=".ui.mvvm.MvvmMainActivity">
         </activity>
+        <activity android:name=".ui.mvp.MvpLoginActivity">
+        </activity>
     </application>
 
 </manifest>

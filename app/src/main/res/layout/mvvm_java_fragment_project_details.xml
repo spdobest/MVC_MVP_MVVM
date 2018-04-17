@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable name="isLoading" type="boolean" />
-        <variable name="projectViewModel" type="com.example.test.mvvmsampleapp.viewmodel.ProjectViewModel"/>
+        <variable name="projectViewModel"
+                  type="spm.mvc_mvp_mvvm.mvvm_java.viewmodel.ProjectViewModel"/>
     </data>
 
     <FrameLayout
@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical|center_horizontal"
-            android:text="@string/loading_project"
+            android:text="loading_project"
             android:textAlignment="center"
             app:visibleGone="@{isLoading}"/>
 
