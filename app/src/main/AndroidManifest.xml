@@ -29,6 +29,8 @@
         </activity>
         <activity android:name=".architecturComponent.ComponentActivity">
         </activity>
+        <activity android:name=".architecturComponent.mvvm.ProfileActivity">
+        </activity>
     </application>
 
 </manifest>
