@@ -106,4 +106,90 @@ Windows Forms is a perfect example of this.  In order to separate the view from 
 Use in situations where binding via a datacontext is possible.  Why?  The various IView interfaces for each view are removed which means less code to maintain.
 Some examples where MVVM is possible include WPF and javascript projects using Knockout.
 
+## Android Architecture Components
+
+**Lets explain the problems with the existing code without the lifecycle aware component.**  
+Let's  call a Booking Taxi application where the user will always see the location on the map. WHen the screen comes to Foreground, the location of user and taxi will be shown in the map and in onPause we jave to remove.  
+  
+In our activity or Fragment class, in OnStart or onResume method we will register the callBack for Location Services, we make Start the Location Service , fetch the data and show the loaction in the Google Map. and in onPause we will  remove the Location service callback of Location services.  
+  
+This is How we do in general.  
+  
+class MyLocationListener {  
+    public MyLocationListener(Context context, Callback callback) {  
+        // ...   
+    }  
+    void start() {  
+        // connect to system location service  
+    }  
+    void stop() {  
+        // disconnect from system location service  
+    }  
+}    
+  
+public class SHowMyPositionActivity extends AppCompatActivity {  
+    private MyLocationListener myLocationListener;  
+  
+    @Override  
+    public void onCreate(...) {  
+        myLocationListener = new MyLocationListener(this, (location) -> {  
+            // update UI  
+        });   
+    }  
+    @Override   
+    public void onStart() {  
+        super.onStart();  
+        myLocationListener.start();  
+        // manage other components that need to respond  
+        // to the activity lifecycle  
+    }  
+    @Override 
+    public void onStop() {  
+        super.onStop();  
+        myLocationListener.stop();  
+        // manage other components that need to respond  
+        // to the activity lifecycle  
+    }  
+}  
+  
+1. We have to write a lots of complex code in the onStart() and onStop() method to Start the LocationServie and to stop the location Service.  
+2. Sometime in our application onStop  called before onStart. on Immediate configuration change, the activity recreated by calling onStop() methos. Its very difficult to maintain the life cycle .  
+  
+TO overcome the above problem , Google came with a solution which is called LifecyclerAware.  
+
+
+There are 4 main Building Bolcks of Android Architecture Component  
+1. LifecyclerOwner  
+2. LifecyclerObserver  
+3. ViewModel  
+4. Mvvm  
+  
+**Lifecycle** is a class which holds the lifecycle state of the android Component (Like Fragment, Activity etc) and allows other classes to Observ the state of the Component  
+  
+Lifecycle uses two main enumerations to track the lifecycle status for its associated component:  
+  
+**Event**
+The lifecycle events that are dispatched from the framework and the Lifecycle class. These events map to the callback events in activities and fragments.  
+**State**  
+The current state of the component tracked by the Lifecycle object.  
+ 
+    
+**Example**  
+  
+public class MyObserver implements LifecycleObserver {  
+    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)  
+    public void connectListener() {  
+        ...  
+    }  
+    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)  
+    public void disconnectListener() {  
+        ...  
+    }  
+}  
+myLifecycleOwner.getLifecycle().addObserver(new MyObserver());    
+ 
+ 
+
+
+
 
