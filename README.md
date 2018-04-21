@@ -127,7 +127,7 @@ class MyLocationListener {
     }  
 }    
   
-public class SHowMyPositionActivity extends AppCompatActivity {  
+public class ShowMyLocationActivity extends AppCompatActivity {  
     private MyLocationListener myLocationListener;  
   
     @Override  
@@ -172,23 +172,75 @@ Lifecycle uses two main enumerations to track the lifecycle status for its assoc
 The lifecycle events that are dispatched from the framework and the Lifecycle class. These events map to the callback events in activities and fragments.  
 **State**  
 The current state of the component tracked by the Lifecycle object.  
- 
+   
+  ### DIAGRAM OF LIFECYCLE COMPONENTS
+![alt tag](https://github.com/spdobest/MVC_MVP_MVVM/blob/master/images/lifecycle_states.png)  
     
 **Example**  
-  
-public class MyObserver implements LifecycleObserver {  
-    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)  
-    public void connectListener() {  
-        ...  
+   **INSIDE MY ACTIVITY CLASS**    
+  public class ComponentActivity extends AppCompatActivity implements LifecycleOwner,MyLOcationListener {    
+    @Override  
+    protected void onCreate(Bundle savedInstanceState) {  
+        super.onCreate(savedInstanceState);  
+        setContentView(R.layout.activity_component);  
+        getLifecycle().addObserver(new MyLocationListener(this,getLifecycle(),this));  
     }  
-    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)  
-    public void disconnectListener() {  
-        ...  
+    @Override  
+    public void onDetectLocation(String location) {  
+        // Show the location in the map here  
+    }  
+    @Override  
+    public void onLocationFail(String error) {  
+        // show error  
     }  
 }  
-myLifecycleOwner.getLifecycle().addObserver(new MyObserver());    
- 
- 
+  
+  **INTERFACE for Callback**  
+    public interface MyLOcationListener{  
+    void onDetectLocation(String location);  
+    void onLocationFail(String error);  
+}  
+    
+**OBSERVER CLASS**  
+class MyLocationListener implements LifecycleObserver {  
+    Lifecycle lifecycle;  
+    MyLOcationListener myLOcationListener;  
+    private boolean enabled = false;  
+    public MyLocationListener(Context context, Lifecycle lifecycle, MyLOcationListener callback) {  
+        this.lifecycle = lifecycle;  
+        this.myLOcationListener = callback;  
+    }  
+    @OnLifecycleEvent(Lifecycle.Event.ON_START)  
+    void start() {  
+        if (enabled) {  
+            // connect and get the location and send to Activity through callback  
+        }  
+    }  
+    public void enable() {  
+        enabled = true;  
+        if (lifecycle.getCurrentState().isAtLeast(STARTED)) {  
+            // connect if not connected  
+            myLOcationListener.onDetectLocation("location");  
+        }  
+    }  
+    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)  
+    void stop() {  
+        // disconnect if connected  
+        myLOcationListener.onDetectLocation("location stop");  
+    }  
+}   
+  
+  
+**LifecycleOwner**  is a single method interface that denotes that the class has a Lifecycle. It has one method,   getLifecycle(), which must be implemented by the class. If you're trying to manage the lifecycle of a whole application process instead, see ProcessLifecycleOwner.  
+  
+**OTHER USE CASES OF LIFECYCLE**  
+1) Switching between coarse and fine-grained location updates. Use lifecycle-aware components to enable fine-grained location updates while your location app is visible and switch to coarse-grained updates when the app is in the background. LiveData, a lifecycle-aware component, allows your app to automatically update the UI when your use changes locations.  
+2) Stopping and starting video buffering. Use lifecycle-aware components to start video buffering as soon as possible, but defer playback until app is fully started. You can also use lifecycle-aware components to terminate buffering when your app is destroyed.  
+3) Starting and stopping network connectivity. Use lifecycle-aware components to enable live updating (streaming) of network data while an app is in the foreground and also to automatically pause when the app goes into the background.
+Pausing and resuming animated drawables. Use lifecycle-aware components to handle pausing animated drawables when while app is in the background and resume drawables after the app is in the foreground.  
+  
+  
+
 
 
 
