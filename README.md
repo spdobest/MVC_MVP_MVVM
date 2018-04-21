@@ -168,9 +168,9 @@ There are 4 main Building Bolcks of Android Architecture Component
   
 Lifecycle uses two main enumerations to track the lifecycle status for its associated component:  
   
-Event  
+**Event**
 The lifecycle events that are dispatched from the framework and the Lifecycle class. These events map to the callback events in activities and fragments.  
-State  
+**State**  
 The current state of the component tracked by the Lifecycle object.  
  
     
