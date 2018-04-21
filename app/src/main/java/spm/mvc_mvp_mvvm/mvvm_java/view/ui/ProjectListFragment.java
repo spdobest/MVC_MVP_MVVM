@@ -1,7 +1,6 @@
 package spm.mvc_mvp_mvvm.mvvm_java.view.ui;
 
 import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.LifecycleFragment;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
@@ -11,14 +10,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.test.mvvmsampleapp.R;
-import com.example.test.mvvmsampleapp.databinding.FragmentProjectListBinding;
-import com.example.test.mvvmsampleapp.service.model.Project;
-import com.example.test.mvvmsampleapp.view.adapter.ProjectAdapter;
-import com.example.test.mvvmsampleapp.view.callback.ProjectClickCallback;
-import com.example.test.mvvmsampleapp.viewmodel.ProjectListViewModel;
 
 import java.util.List;
+
+import spm.mvc_mvp_mvvm.R;
+import spm.mvc_mvp_mvvm.mvvm_java.ProjectListViewModel;
+import spm.mvc_mvp_mvvm.mvvm_java.service.model.Project;
+import spm.mvc_mvp_mvvm.mvvm_java.view.adapter.ProjectAdapter;
+import spm.mvc_mvp_mvvm.mvvm_java.view.callback.ProjectClickCallback;
 
 public class ProjectListFragment extends LifecycleFragment {
     public static final String TAG = "ProjectListFragment";
@@ -29,7 +28,7 @@ public class ProjectListFragment extends LifecycleFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
             @Nullable Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_project_list, container, false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.mvvm_java_fragment_project_list, container, false);
 
         projectAdapter = new ProjectAdapter(projectClickCallback);
         binding.projectList.setAdapter(projectAdapter);

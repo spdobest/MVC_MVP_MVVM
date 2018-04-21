@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import spm.mvc_mvp_mvvm.R;
+import spm.mvc_mvp_mvvm.mvvm_java.service.model.Project;
 
 
 public class MainActivity extends LifecycleActivity {

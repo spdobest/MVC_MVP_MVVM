@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import spm.mvc_mvp_mvvm.R;
 import spm.mvc_mvp_mvvm.ui.mvp.presenter.LoginPresenter;
 import spm.mvc_mvp_mvvm.ui.mvp.view.LoginViewInterface;
 

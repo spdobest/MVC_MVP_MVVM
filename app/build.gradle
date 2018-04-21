@@ -109,8 +109,20 @@ dependencies {
 
     // Paging
     implementation "android.arch.paging:runtime:1.0.0-beta1"
+    // Java8 support for Lifecycles
+    implementation "android.arch.lifecycle:common-java8:1.1.1"
+
+    // RxJava support for Room (use 1.1.0-beta3 for latest beta)
+    implementation "android.arch.persistence.room:rxjava2:1.0.0"
+
+    // ReactiveStreams support for LiveData
+    implementation "android.arch.lifecycle:reactivestreams:1.1.1"
+
+    // RxJava support for Paging
+    implementation "android.arch.paging:rxjava2:1.0.0-alpha1"
 
 }
+
 
 
 
