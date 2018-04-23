@@ -6,13 +6,15 @@ import android.arch.lifecycle.OnLifecycleEvent;
 
 import android.content.Context;
 
+import spm.mvc_mvp_mvvm.architecturComponent.mvvm.listener.LocationListenerInterface;
+
 import static android.arch.lifecycle.Lifecycle.State.STARTED;
 
 class MyLocationListener implements LifecycleObserver {
     Lifecycle lifecycle;
-    MyLOcationListener myLOcationListener;
+    LocationListenerInterface myLOcationListener;
     private boolean enabled = false;
-    public MyLocationListener(Context context, Lifecycle lifecycle, MyLOcationListener callback) {
+    public MyLocationListener(Context context, Lifecycle lifecycle, LocationListenerInterface callback) {
         this.lifecycle = lifecycle;
         this.myLOcationListener = callback;
     }

@@ -5,6 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="spm.mvc_mvp_mvvm.ui.mvp.MvpLoginActivity">
+    tools:context="spm.mvc_mvp_mvvm.mvp.MvpLoginActivity">
 
 </android.support.constraint.ConstraintLayout>

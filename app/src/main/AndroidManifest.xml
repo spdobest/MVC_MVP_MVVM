@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="spm.mvc_mvp_mvvm">
+    package="spm.mvc_mvp_mvvm">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -14,23 +14,18 @@
         android:theme="@style/AppTheme">
         <activity android:name=".DesignPatternActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.mvc.MvcMainActivity">
-        </activity>
-        <activity android:name=".ui.mvp.MvpMainActivity">
-        </activity>
-        <activity android:name=".ui.mvvm.MvvmMainActivity">
-        </activity>
-        <activity android:name=".ui.mvp.MvpLoginActivity">
-        </activity>
-        <activity android:name=".architecturComponent.ComponentActivity">
-        </activity>
-        <activity android:name=".architecturComponent.mvvm.ProfileActivity">
-        </activity>
+        <activity android:name=".mvc.MvcMainActivity"></activity>
+        <activity android:name=".mvp.MvpMainActivity"></activity>
+        <activity android:name=".ui.mvvm.MvvmMainActivity"></activity>
+        <activity android:name=".mvp.MvpLoginActivity"></activity>
+        <activity android:name=".architecturComponent.ComponentActivity"></activity>
+        <activity android:name=".architecturComponent.mvvm.ProfileActivity"></activity>
+        <activity android:name=".mvvm_room_lifecycle_dagger.AllMainActivity"></activity>
     </application>
 
 </manifest>

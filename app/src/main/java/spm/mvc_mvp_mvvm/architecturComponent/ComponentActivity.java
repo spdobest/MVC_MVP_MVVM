@@ -5,10 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import spm.mvc_mvp_mvvm.R;
+import spm.mvc_mvp_mvvm.architecturComponent.mvvm.listener.LocationListenerInterface;
 
 public class ComponentActivity extends AppCompatActivity
         implements LifecycleOwner,
-        MyLOcationListener{
+        LocationListenerInterface {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,10 +20,7 @@ public class ComponentActivity extends AppCompatActivity
     public void onDetectLocation(String location) {
         // Show the location in the map here
     }
-    @Override
-    public void onLocationFail(String error) {
-        // show error
-    }
+
 }
 
 
