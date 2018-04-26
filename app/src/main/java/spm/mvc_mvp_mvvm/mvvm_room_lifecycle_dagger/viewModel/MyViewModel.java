@@ -18,6 +18,7 @@ public class MyViewModel extends ViewModel {
 //	https://medium.com/@gauravgyal/android-architecture-pattern-components-mvvm-livedata-viewmodel-lifecycle-544e84e85177
 //	https://medium.com/@ramtrg/https-medium-com-ramtrg-mvvm-architecture-components-4d17d3f09bb7
 //	https://android.jlelse.eu/android-architecture-components-now-with-100-more-mvvm-11629a630125
+//	https://medium.com/exploring-android/exploring-the-new-android-architecture-components-c33b15d89c23
 	private MovieRepository movieRepository;
 
 	private MutableLiveData<Movie> selectedItem;

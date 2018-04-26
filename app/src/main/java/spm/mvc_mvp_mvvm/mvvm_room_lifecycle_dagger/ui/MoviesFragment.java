@@ -27,6 +27,7 @@ import butterknife.ButterKnife;
 import spm.mvc_mvp_mvvm.R;
 import spm.mvc_mvp_mvvm.databinding.FragmentMoviesBinding;
 import spm.mvc_mvp_mvvm.mvvm_room_lifecycle_dagger.adapter.MoviesAdapter;
+import spm.mvc_mvp_mvvm.mvvm_room_lifecycle_dagger.countrylist.model.CountryResult;
 import spm.mvc_mvp_mvvm.mvvm_room_lifecycle_dagger.dto.Movie;
 import spm.mvc_mvp_mvvm.mvvm_room_lifecycle_dagger.listeners.MoviesListener;
 import spm.mvc_mvp_mvvm.mvvm_room_lifecycle_dagger.viewModel.MoviesListViewModel;
@@ -79,7 +80,7 @@ public class MoviesFragment extends Fragment implements LifecycleOwner, MoviesLi
 
        // moviesListViewModel = new MoviesListViewModel(getActivity().getApplication(), this);
 
-      //  getLifecycle().addObserver(moviesListViewModel);
+
         moviesAdapter = new MoviesAdapter(movieList);
 
         projectList.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -87,6 +88,9 @@ public class MoviesFragment extends Fragment implements LifecycleOwner, MoviesLi
 
         MoviesListViewModel moviesListViewModel = ViewModelProviders.of(this).get(MoviesListViewModel.class);
         subscribeUi(moviesListViewModel);
+
+        getLifecycle().addObserver(moviesListViewModel);
+
 //        moviesListViewModel.getMoviesListObservable()
 //                .observe(this, this::showMovieList);
 
@@ -125,9 +129,9 @@ public class MoviesFragment extends Fragment implements LifecycleOwner, MoviesLi
         if(viewModel==null)
             viewModel = new MoviesListViewModel(getActivity().getApplication());
 
-        viewModel.getMoviesListObservable().observe(this, new Observer<List<Movie>>() {
+        viewModel.getCOuntriesListObservable().observe(this, new Observer<List<CountryResult>>() {
             @Override
-            public void onChanged(@Nullable List<Movie> myProducts) {
+            public void onChanged(@Nullable List<CountryResult> myProducts) {
                 Log.i(TAG, "onChanged: ");
             }
         });

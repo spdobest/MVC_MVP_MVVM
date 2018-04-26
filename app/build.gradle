@@ -31,7 +31,7 @@ android {
 
     dataBinding {
         enabled = true
-       // android.databinding.enableV2=true
+        // android.databinding.enableV2=true
     }
 
     compileOptions {

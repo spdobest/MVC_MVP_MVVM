@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="country"
+            type="spm.mvc_mvp_mvvm.mvvm_room_lifecycle_dagger.countrylist.model.CountryResult"/>
+
+        <variable
+            name="callback"
+            type="spm.mvc_mvp_mvvm.mvvm_room_lifecycle_dagger.countrylist.callBack.OnClickCallback"/>
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/item_horizontal_margin"
+        android:layout_marginStart="@dimen/item_horizontal_margin"
+
+        android:orientation="horizontal"
+        app:cardUseCompatPadding="true">
+
+        <!--android:onClick="@{(v) ->  callback.onClick(v,country)}"-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                />
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/item_horizontal_margin"
+                android:layout_marginStart="@dimen/item_horizontal_margin"
+                android:layout_weight="7"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tvCountryName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/app_name"
+                    android:text="@{country.getName()}"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tvCountryCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{country.getAlpha2_code()}"
+                    android:textSize="12sp"/>
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</layout>

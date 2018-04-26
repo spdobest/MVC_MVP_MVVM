@@ -21,5 +21,9 @@ class DesignPatternActivity : AppCompatActivity() {
         buttonMVVM.setOnClickListener(View.OnClickListener {
             var intentMvc = Intent(this, AllMainActivity::class.java)
             startActivity(intentMvc); })
+
+        buttonMVVM.setOnClickListener(View.OnClickListener {
+            var intentMvc = Intent(this, AllMainActivity::class.java)
+            startActivity(intentMvc); })
     }
 }

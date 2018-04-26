@@ -1,4 +1,4 @@
-package spm.mvc_mvp_mvvm.mvvm_room_lifecycle_dagger.viewModel;
+package spm.mvc_mvp_mvvm.mvvm_room_lifecycle_dagger.countrylist.viewModel;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
@@ -7,38 +7,33 @@ import android.arch.lifecycle.LifecycleObserver;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.OnLifecycleEvent;
-import android.arch.lifecycle.ViewModel;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
 import java.util.List;
 
-import okhttp3.internal.Util;
 import spm.mvc_mvp_mvvm.mvvm_room_lifecycle_dagger.countrylist.model.CountryResult;
-import spm.mvc_mvp_mvvm.mvvm_room_lifecycle_dagger.dto.Movie;
-import spm.mvc_mvp_mvvm.mvvm_room_lifecycle_dagger.listeners.MoviesListener;
+import spm.mvc_mvp_mvvm.mvvm_room_lifecycle_dagger.countrylist.repository.CountryRepository;
 import spm.mvc_mvp_mvvm.mvvm_room_lifecycle_dagger.networkcall.MovieRepository;
 
+/**
+ * Created by root on 4/26/18.
+ */
 
-public class MoviesListViewModel extends AndroidViewModel  implements LifecycleObserver  {
+public class CountryViewModel extends AndroidViewModel implements LifecycleObserver{
+    private static final String TAG = "CountryViewModel";
 
-    private static final String TAG = "MoviesListViewModel";
-
-    private  LiveData<List<Movie>> projectListObservable = new MutableLiveData<>();
     private  LiveData<List<CountryResult>> countryList = new MutableLiveData<>();
 
-    public MoviesListViewModel(@NonNull Application application) {
+    // create livedata country list
+    private LiveData<List<CountryResult>> livedataCountryList;
+
+    public CountryViewModel(@NonNull Application application) {
         super(application);
-        projectListObservable = MovieRepository.getInstance().getMoviesList();
-    }
 
-    /**
-     * Expose the LiveData Projects query so the UI can observe it.
-     */
-    public LiveData<List<Movie>> getMoviesListObservable() {
-        return projectListObservable;
-    }
+        countryList = CountryRepository.getInstance().getCountryList();
 
+    }
     public LiveData<List<CountryResult>> getCOuntriesListObservable() {
         return countryList;
     }
@@ -60,7 +55,6 @@ public class MoviesListViewModel extends AndroidViewModel  implements LifecycleO
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     void onStart() {
-        projectListObservable = MovieRepository.getInstance().getMoviesList();
         Log.i(TAG, "onStart: ");
     }
 
