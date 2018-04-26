@@ -63,7 +63,7 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.ArticleV
 
         binding.setCallback(new OnClickCallback());
 
-        return new ArticleViewHolder(null);
+        return new ArticleViewHolder(binding);
     }
 
     @Override
