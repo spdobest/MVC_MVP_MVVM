@@ -41,6 +41,8 @@ public class MoviesFragment extends Fragment implements LifecycleOwner, MoviesLi
     private MoviesAdapter moviesAdapter;
     private FragmentMoviesBinding fragmentMoviesBinding;
 
+
+//    https://github.com/gauravgyal/MVVM-LIveData-ViewModel
     private MoviesListViewModel moviesListViewModel;
 
     LiveData<List<Movie>> movieListLiveData;

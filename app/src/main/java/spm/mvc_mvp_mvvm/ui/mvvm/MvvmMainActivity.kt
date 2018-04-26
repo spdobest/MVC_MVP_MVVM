@@ -22,7 +22,7 @@ class MvvmMainActivity : AppCompatActivity() {
     lateinit var apiService:TwitterApi
 
     // example
-    // https://github.com/r7v/Tweetz/tree/master/app/src/main
+    // https://github.com/r7v/Tweetz/tree/master/app/src/mainFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
