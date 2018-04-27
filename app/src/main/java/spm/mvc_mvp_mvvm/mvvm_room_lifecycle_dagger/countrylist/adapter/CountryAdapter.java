@@ -20,6 +20,10 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.ArticleV
 
     List<? extends CountryResult> articleList;
 
+    public CountryAdapter(List<? extends CountryResult> articleList) {
+        this.articleList = articleList;
+    }
+
     public void setProjectList(final List<? extends CountryResult> articleList) {
         if (this.articleList == null) {
             this.articleList = articleList;
@@ -74,7 +78,7 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.ArticleV
 
     @Override
     public int getItemCount() {
-        return articleList == null ? 0 : articleList.size();
+        return /*articleList == null ? 0 :*/ articleList.size();
     }
 
     static class ArticleViewHolder extends RecyclerView.ViewHolder {

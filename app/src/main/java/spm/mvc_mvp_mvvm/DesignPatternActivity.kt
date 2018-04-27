@@ -7,6 +7,8 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_design_pattern.*
 import spm.mvc_mvp_mvvm.mvc.MvcMainActivity
 import spm.mvc_mvp_mvvm.mvvm_room_lifecycle_dagger.AllMainActivity
+import spm.mvc_mvp_mvvm.mvvm_room_lifecycle_dagger.countrylist.CountryListFragment
+import spm.mvc_mvp_mvvm.twoWayDatabinding.TwoDataBindingFragment
 
 class DesignPatternActivity : AppCompatActivity() {
 
@@ -25,5 +27,16 @@ class DesignPatternActivity : AppCompatActivity() {
         buttonMVVM.setOnClickListener(View.OnClickListener {
             var intentMvc = Intent(this, AllMainActivity::class.java)
             startActivity(intentMvc); })
+
+        buttonMvvmWithLiveData.setOnClickListener(View.OnClickListener {
+            supportFragmentManager.beginTransaction().add(R.id.frameContainer, CountryListFragment.newInstance(""), "").commit()
+             })
+
+        buttonTwoWayDataBinding.setOnClickListener(View.OnClickListener {
+            supportFragmentManager.beginTransaction().add(R.id.frameContainer, TwoDataBindingFragment.newInstance(""), "").commit()
+        })
+
+
+
     }
 }

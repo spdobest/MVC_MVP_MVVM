@@ -18,7 +18,6 @@ public class AllMainActivity extends AppCompatActivity implements RetrofitRespon
 
 //        getSupportFragmentManager().beginTransaction().add(MoviesFragment.newInstance(""),"").commit();
 
-        getSupportFragmentManager().beginTransaction().add(CountryListFragment.newInstance(""),"").commit();
     }
 
     @Override

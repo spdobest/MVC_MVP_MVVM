@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,21 +61,17 @@ public class CountryListFragment extends Fragment implements LifecycleOwner {
         // Inflate the layout for this fragment
 
         fragmentCountryBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_country, container, false);
-
         fragmentCountryBinding.setIsLoading(false);
-
         fragmentCountryBinding.countryList.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 
-        countryResultList.add(new CountryResult("Spm","a","b"));
+       // countryResultList.add(new CountryResult("Spm","",""));
 
-        countryAdapter = new CountryAdapter();
-        countryAdapter.setProjectList(countryResultList);
-        fragmentCountryBinding.countryList.setAdapter(new FlightsRecyclerViewAdapter(countryResultList,getActivity()));
-
+        countryAdapter = new CountryAdapter(countryResultList);
+        fragmentCountryBinding.countryList.setAdapter(countryAdapter);
+      //  countryAdapter.setProjectList(countryResultList);
         CountryViewModel countryViewModel = ViewModelProviders.of(this).get(CountryViewModel.class);
-      //  subscribeCountryList(countryViewModel);
-
+        subscribeCountryList(countryViewModel);
         getLifecycle().addObserver(countryViewModel);
 
         return fragmentCountryBinding.getRoot();
@@ -135,7 +132,8 @@ public class CountryListFragment extends Fragment implements LifecycleOwner {
 
                 countryResultList.clear();
                 countryResultList.addAll(countryResults);
-                countryAdapter.setProjectList(countryResultList);
+                countryAdapter.notifyDataSetChanged();
+//               countryAdapter.setProjectList(countryResultList);
             }
         });
     }

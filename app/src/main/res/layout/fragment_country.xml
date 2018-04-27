@@ -20,7 +20,6 @@
             android:gravity="center_vertical|center_horizontal"
             android:text="Loading, plase Wait..."
             android:textAlignment="center"
-            app:visibleGone="@{isLoading}"
             android:visibility="gone"
             />
 
