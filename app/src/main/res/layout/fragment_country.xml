@@ -20,14 +20,15 @@
             android:gravity="center_vertical|center_horizontal"
             android:text="Loading, plase Wait..."
             android:textAlignment="center"
-            app:visibleGone="@{isLoading}" />
+            app:visibleGone="@{isLoading}"
+            android:visibility="gone"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/cardview_light_background"
             android:orientation="vertical"
-            app:visibleGone="@{!isLoading}">
+            >
 
             <TextView
                 android:layout_width="match_parent"
@@ -44,7 +45,7 @@
                 android:id="@+id/country_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:layoutManager="LinearLayoutManager" />
+                />
 
         </LinearLayout>
 

@@ -7,6 +7,7 @@ import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import java.util.List;
 import spm.mvc_mvp_mvvm.R;
 import spm.mvc_mvp_mvvm.databinding.FragmentCountryBinding;
 import spm.mvc_mvp_mvvm.mvvm_room_lifecycle_dagger.countrylist.adapter.CountryAdapter;
+import spm.mvc_mvp_mvvm.mvvm_room_lifecycle_dagger.countrylist.adapter.FlightsRecyclerViewAdapter;
 import spm.mvc_mvp_mvvm.mvvm_room_lifecycle_dagger.countrylist.model.CountryResult;
 import spm.mvc_mvp_mvvm.mvvm_room_lifecycle_dagger.countrylist.viewModel.CountryViewModel;
 
@@ -59,12 +61,19 @@ public class CountryListFragment extends Fragment implements LifecycleOwner {
 
         fragmentCountryBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_country, container, false);
 
+        fragmentCountryBinding.setIsLoading(false);
+
+        fragmentCountryBinding.countryList.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+
+        countryResultList.add(new CountryResult("Spm","a","b"));
+
         countryAdapter = new CountryAdapter();
-        fragmentCountryBinding.countryList.setAdapter(countryAdapter);
-        fragmentCountryBinding.setIsLoading(true);
+        countryAdapter.setProjectList(countryResultList);
+        fragmentCountryBinding.countryList.setAdapter(new FlightsRecyclerViewAdapter(countryResultList,getActivity()));
 
         CountryViewModel countryViewModel = ViewModelProviders.of(this).get(CountryViewModel.class);
-        subscribeCountryList(countryViewModel);
+      //  subscribeCountryList(countryViewModel);
 
         getLifecycle().addObserver(countryViewModel);
 

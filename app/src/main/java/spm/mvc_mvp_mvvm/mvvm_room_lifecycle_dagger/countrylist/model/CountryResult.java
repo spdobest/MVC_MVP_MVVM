@@ -5,6 +5,15 @@ package spm.mvc_mvp_mvvm.mvvm_room_lifecycle_dagger.countrylist.model;
  */
 
 public class CountryResult {
+    public CountryResult() {
+    }
+
+    public CountryResult(String name, String alpha2_code, String alpha3_code) {
+        this.name = name;
+        this.alpha2_code = alpha2_code;
+        this.alpha3_code = alpha3_code;
+    }
+
     private String name;
 
     private String alpha2_code;
