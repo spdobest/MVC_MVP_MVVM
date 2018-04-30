@@ -94,7 +94,8 @@
                     android:layout_below="@+id/login"
                     android:layout_centerHorizontal="true"
                     android:layout_gravity="center_horizontal"
-                    android:visibility="@{loginViewModel.busy}" />
+                     />
+                <!--android:visibility="@{loginViewModel.busy}"-->
 
             </RelativeLayout>
         </FrameLayout>
