@@ -28,6 +28,8 @@
         <activity android:name=".mvvm_room_lifecycle_dagger.AllMainActivity"/>
         <activity android:name=".twoWayDatabinding.TwoDataBindingActivity">
         </activity>
+        <activity android:name=".roomAndPaging.RoomPagingActivity">
+        </activity>
     </application>
 
 </manifest>
