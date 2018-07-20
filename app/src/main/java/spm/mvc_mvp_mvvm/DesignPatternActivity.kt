@@ -6,9 +6,6 @@ import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_design_pattern.*
 import spm.mvc_mvp_mvvm.mvc.MvcMainActivity
-import spm.mvc_mvp_mvvm.mvvm_room_lifecycle_dagger.AllMainActivity
-import spm.mvc_mvp_mvvm.mvvm_room_lifecycle_dagger.countrylist.CountryListFragment
-import spm.mvc_mvp_mvvm.twoWayDatabinding.TwoDataBindingFragment
 
 class DesignPatternActivity : AppCompatActivity() {
 
@@ -20,7 +17,7 @@ class DesignPatternActivity : AppCompatActivity() {
             var intentMvc = Intent(this,MvcMainActivity::class.java)
             startActivity(intentMvc); })
 
-        buttonMVVM.setOnClickListener(View.OnClickListener {
+       /* buttonMVVM.setOnClickListener(View.OnClickListener {
             var intentMvc = Intent(this, AllMainActivity::class.java)
             startActivity(intentMvc); })
 
@@ -34,7 +31,7 @@ class DesignPatternActivity : AppCompatActivity() {
 
         buttonTwoWayDataBinding.setOnClickListener(View.OnClickListener {
             supportFragmentManager.beginTransaction().add(R.id.frameContainer, TwoDataBindingFragment.newInstance(""), "").commit()
-        })
+        })*/
 
 
 

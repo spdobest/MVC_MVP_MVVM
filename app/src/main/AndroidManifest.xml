@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="spm.mvc_mvp_mvvm">
+    package="spm.mvc_mvp_mvvm">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -12,24 +12,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DesignPatternActivity">
+        <activity android:name=".DesignPatternActivity" />
+        <activity android:name=".mvc.MvcMainActivity" />
+        <activity android:name=".mvp.MvpMainActivity" />
+        <activity android:name=".mvp.MvpLoginActivity" />
+        <activity android:name=".architecturComponent.ComponentActivity" />
+        <activity android:name=".architecturComponent.mvvm.ProfileActivity" />
+        <activity android:name=".mvvm.MvvmNewActivity" />
+        <activity android:name=".mvvm.databinding.DataBindingActivity"></activity>
+        <activity android:name=".mvvm.mvvm.SimpleMvvmActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".mvc.MvcMainActivity"/>
-        <activity android:name=".mvp.MvpMainActivity"/>
-        <activity android:name=".ui.mvvm.MvvmMainActivity"/>
-        <activity android:name=".mvp.MvpLoginActivity"/>
-        <activity android:name=".architecturComponent.ComponentActivity"/>
-        <activity android:name=".architecturComponent.mvvm.ProfileActivity"/>
-        <activity android:name=".mvvm_room_lifecycle_dagger.AllMainActivity"/>
-        <activity android:name=".twoWayDatabinding.TwoDataBindingActivity">
-        </activity>
-        <activity android:name=".roomAndPaging.RoomPagingActivity">
-        </activity>
+        <activity android:name=".mvvm.twoWayDataBinding.TwoDataBindingActivity"></activity>
     </application>
 
 </manifest>
