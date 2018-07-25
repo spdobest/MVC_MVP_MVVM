@@ -238,6 +238,16 @@ class MyLocationListener implements LifecycleObserver {
 2) Stopping and starting video buffering. Use lifecycle-aware components to start video buffering as soon as possible, but defer playback until app is fully started. You can also use lifecycle-aware components to terminate buffering when your app is destroyed.  
 3) Starting and stopping network connectivity. Use lifecycle-aware components to enable live updating (streaming) of network data while an app is in the foreground and also to automatically pause when the app goes into the background.
 Pausing and resuming animated drawables. Use lifecycle-aware components to handle pausing animated drawables when while app is in the background and resume drawables after the app is in the foreground.  
+
+**USE OF VIEWMODEL IN MVVM***  
+  
+ViewModel class can be just a POJO. What is the motivation for extending from the new ViewModel object then? I’m listing a few of them here:  
+1) The ViewModel is lifecycle aware so that it will survive the configuration change. It will outlive the Activity or Fragment.  
+2)Another motivation is easier communications between fragments, in stead of relying on the hosting Activity passing the communications.  
+Works pretty well with LiveData, an observable data holder.  
+You can use RxJava instead of LiveData.  
+AsyncTask is now safe to be used in a ViewModel!  
+  
   
   
 
