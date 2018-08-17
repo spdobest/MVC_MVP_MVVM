@@ -1,11 +1,14 @@
 package spm.mvc_mvp_mvvm.mvvm.mvvm.interactor;
 
+import android.app.Application;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.util.Log;
 
 import java.util.List;
 
+import okhttp3.Cache;
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -30,19 +33,29 @@ public class CountryInteractor {
     private RetrofitAPIInterface retrofitAPIInterface;
     private static CountryInteractor CountryInteractor;
 
-    private CountryInteractor() {
+    private CountryInteractor(Application application) {
+
+
+        int cacheSize = 10 * 1024 * 1024; // 10 MB
+        Cache cache = new Cache(application.getCacheDir(), cacheSize);
+
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .cache(cache)
+                .build();
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://services.groupkt.com/country/get/")
                 .addConverterFactory(GsonConverterFactory.create())
+                .client(okHttpClient)
                 .build();
 
         retrofitAPIInterface = retrofit.create(RetrofitAPIInterface.class);
     }
 
-    public synchronized static CountryInteractor getInstance() {
+    public synchronized static CountryInteractor getInstance(Application application) {
         if (CountryInteractor == null) {
             if (CountryInteractor == null) {
-                CountryInteractor = new CountryInteractor();
+                CountryInteractor = new CountryInteractor(application);
             }
         }
         return CountryInteractor;

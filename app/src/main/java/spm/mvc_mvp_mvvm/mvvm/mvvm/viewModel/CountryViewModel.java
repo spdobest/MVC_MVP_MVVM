@@ -32,7 +32,7 @@ public class CountryViewModel extends AndroidViewModel implements LifecycleObser
     public CountryViewModel(@NonNull Application application) {
         super(application);
 
-        countryList = CountryInteractor.getInstance().getCountryList();
+        countryList = CountryInteractor.getInstance(application).getCountryList();
 
     }
 

@@ -19,7 +19,7 @@
         <activity android:name=".architecturComponent.ComponentActivity" />
         <activity android:name=".architecturComponent.mvvm.ProfileActivity" />
         <activity android:name=".mvvm.MvvmNewActivity" />
-        <activity android:name=".mvvm.databinding.DataBindingActivity"></activity>
+        <activity android:name=".mvvm.databinding.DataBindingActivity"/>
         <activity android:name=".mvvm.mvvm.SimpleMvvmActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
