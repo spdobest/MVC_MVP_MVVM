@@ -21,13 +21,19 @@
         <activity android:name=".mvvm.MvvmNewActivity" />
         <activity android:name=".mvvm.databinding.DataBindingActivity"/>
         <activity android:name=".mvvm.mvvm.SimpleMvvmActivity">
+
+        </activity>
+        <activity android:name=".mvvm.twoWayDataBinding.TwoDataBindingActivity">
+
+        </activity>
+
+        <activity android:name=".mvvm.screenorientation.ScreenOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".mvvm.twoWayDataBinding.TwoDataBindingActivity"></activity>
     </application>
 
 </manifest>
