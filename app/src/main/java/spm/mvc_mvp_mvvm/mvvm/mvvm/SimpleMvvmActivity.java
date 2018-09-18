@@ -1,6 +1,8 @@
 package spm.mvc_mvp_mvvm.mvvm.mvvm;
 
+import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.LifecycleOwner;
+import android.arch.lifecycle.LifecycleRegistry;
 import android.arch.lifecycle.ViewModelProviders;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,17 +25,25 @@ public class SimpleMvvmActivity extends AppCompatActivity implements LifecycleOw
     private RecyclerView recyclerViewCountry;
 
 
+    private LifecycleRegistry mLifecycleRegistry;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simple_mvvm);
 
+
+        mLifecycleRegistry = new LifecycleRegistry(this);
+        mLifecycleRegistry.markState(Lifecycle.State.CREATED);
+
         recyclerViewCountry = findViewById(R.id.recyclerViewCountry);
         recyclerViewCountry.setLayoutManager(new LinearLayoutManager(this));
         countryAdapter = new CountryAdapter(countryResultList);
         recyclerViewCountry.setAdapter(countryAdapter);
+
         CountryViewModel countryViewModel = ViewModelProviders.of(this).get(CountryViewModel.class);
         subscribeCountryList(countryViewModel);
+
         getLifecycle().addObserver(countryViewModel);
     }
 

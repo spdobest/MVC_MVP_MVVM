@@ -31,7 +31,7 @@ android {
 
     dataBinding {
         enabled = true
-        //  android.databinding.enableV2=true
+        // android.databinding.enableV2=true
     }
 
     compileOptions {
@@ -55,7 +55,7 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:27.1.1'
 
     /* reactive */
-    implementation 'io.reactivex.rxjava2:rxjava:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.0'
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
 
     /* Retrofit 2*/
@@ -66,8 +66,8 @@ dependencies {
     implementation('com.squareup.retrofit2:retrofit:2.1.0') {
         exclude module: 'okhttp'
     }
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
-    implementation 'com.squareup.okhttp3:okhttp:3.8.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.9.0'
 
     /* AutoValue*/
     compileOnly 'com.google.auto.value:auto-value:1.5.2'
@@ -136,6 +136,4 @@ dependencies {
     // butterknife
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-    // Paging
-    compile 'android.arch.paging:runtime:1.0.1'
 }
