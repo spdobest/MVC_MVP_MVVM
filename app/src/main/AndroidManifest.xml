@@ -19,15 +19,13 @@
         <activity android:name=".architecturComponent.ComponentActivity" />
         <activity android:name=".architecturComponent.mvvm.ProfileActivity" />
         <activity android:name=".mvvm.MvvmNewActivity" />
-        <activity android:name=".mvvm.databinding.DataBindingActivity"/>
-        <activity android:name=".mvvm.mvvm.SimpleMvvmActivity">
-
-        </activity>
-        <activity android:name=".mvvm.twoWayDataBinding.TwoDataBindingActivity">
-
-        </activity>
-
+        <activity android:name=".mvvm.databinding.DataBindingActivity" />
+        <activity android:name=".mvvm.mvvm.SimpleMvvmActivity"></activity>
+        <activity android:name=".mvvm.twoWayDataBinding.TwoDataBindingActivity"></activity>
         <activity android:name=".mvvm.screenorientation.ScreenOrientationActivity">
+
+        </activity>
+        <activity android:name=".pagingLib.PagingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
